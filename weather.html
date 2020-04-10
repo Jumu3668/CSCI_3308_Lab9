@@ -96,7 +96,10 @@
 
 			$.ajax({url:url, dataType:"jsonp"}).then(function(data) {
             console.log(data);
-        /*
+            console.log("Current Temp: " + data.current.temperature)
+            var current_time = data.location.localtime;
+            console.log("Current time: " + current_time)
+;        /*
 
 		Read the current weather information from the data point values [https://weatherstack.com/documentation] to
 		update the webpage for today's weather:
@@ -106,6 +109,7 @@
         */
 
         document.getElementById('image_today').src = data.current.weather_icons;
+        console.log(data.current.weather_icons)
 
         /*
 
@@ -114,7 +118,6 @@
         */
 
         document.getElementById('heading').innerHTML = "Weather Forecast - " + data.location.name;
-
         /*
 
 		3. temp_today : This will be updated to match the current temperature. Use the getFarenheitTemp to convert the temperature from celsius to farenheit.
@@ -129,22 +132,49 @@
 		4. thermometer_inner : Modify the height of the thermometer to match the current temperature. This means if the
 							   current temperature is 32 F, then the thermometer will have a height of 32%.  Please note,
 							   this thermometer has a lower boundary of 0 and upper boundary of 100.
-
         */
 
         document.getElementById('thermometer_inner').style.height = tempInF;
+
+        document.getElementById("local_time").innerHTML = current_time;
+
+        // Change color of thermometer Extra Credit
+        var current_temp = data.current.temperature;
+        document.getElementById("thermometer_inner").style.height = current_temp + "%";
+        if (current_temp > 85) {
+            document.getElementById("thermometer_inner").style.background = "red";
+        } else if (current_temp< 65) {
+            document.getElementById("thermometer_inner").style.background = "blue";
+        } else {
+            document.getElementById("thermometer_inner").style.background = "grey";
+        }
+
+
+
+
+
+
+
 
         /*
 
 		5. precip_today : This will be updated to match the current probability for precipitation. Be sure to check the unit of the value returned and append that to the value displayed.
 
         */
+
+        var current_precip = data.current.precip;
+        console.log(current_precip);
+        document.getElementById("precip_today").innerHTML = current_precip + "%";
+
         /*
 
-		6. humidity_today : This will be updated to match the current humidity percentage (make sure this is listed as a
-							percentage %)
+		6. humidity_today : This will be updated to match the current humidity percentage (make sure this is listed as a percentage %)
 
         */
+
+        var current_humidity = data.current.humidity;
+        console.log(current_humidity);
+        document.getElementById("humidity_today").innerHTML = current_humidity +"%";
 
         /*
 
@@ -152,11 +182,19 @@
 
         */
 
+        var current_wind_speed = data.current.wind_speed;
+        console.log(current_wind_speed);
+        document.getElementById("wind_today").innerHTML = current_wind_speed;
+
         /*
 
 		8. summary_today: This will be updated to match the current summary for the day's weather.
 
         */
+
+        var current_summary = data.current.weather_descriptions;
+        console.log(current_summary);
+        document.getElementById("summary_today").innerHTML = current_summary;
 
         //data.current.undsercore.descriptions
 				/* Process the daily forecast for the next 5 days */
