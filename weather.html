@@ -149,22 +149,14 @@
             document.getElementById("thermometer_inner").style.background = "grey";
         }
 
-
-
-
-
-
-
-
         /*
 
 		5. precip_today : This will be updated to match the current probability for precipitation. Be sure to check the unit of the value returned and append that to the value displayed.
 
         */
 
-        var current_precip = data.current.precip;
-        console.log(current_precip);
-        document.getElementById("precip_today").innerHTML = current_precip + "%";
+        console.log(data.current.precip);
+        document.getElementById("precip_today").innerHTML = data.current.precip + "%";
 
         /*
 
@@ -172,9 +164,8 @@
 
         */
 
-        var current_humidity = data.current.humidity;
-        console.log(current_humidity);
-        document.getElementById("humidity_today").innerHTML = current_humidity +"%";
+        console.log(data.current.humidity);
+        document.getElementById("humidity_today").innerHTML = data.current.humidity +"%";
 
         /*
 
@@ -182,9 +173,8 @@
 
         */
 
-        var current_wind_speed = data.current.wind_speed;
-        console.log(current_wind_speed);
-        document.getElementById("wind_today").innerHTML = current_wind_speed;
+        console.log(data.current.wind_speed);
+        document.getElementById("wind_today").innerHTML = data.current.wind_speed;
 
         /*
 
@@ -234,6 +224,54 @@
 					<Hint2 - To add the cards to the HTML> - Make sure to use string concatenation to add the html code for the daily weather cards.  This should
 					be set to the innerHTML for the 5_day_forecast.
 				*/
+            var date_0 = getKey(0);
+            console.log(date_0);
+            console.log(dayOfWeek);
+            var date_0_high_temp = date_0.maxtemp;
+            console.log(date_0_high_temp);
+            var date_0_low_temp = date_0.mintemp;
+            var date_0_sunrise_time = date_0.astro.sunrise;
+            console.log(date_0_sunrise_time);
+            var date_0_sunset_time = date_0.astro.sunset;
+            console.log(date_0_sunset_time);
+            var temp_card = '<div style="width: 20%;"><div class="card"><div class="card-body"><h5 class="card-title">'+dayOfWeek+'</h5><p class="card-text">High:'+date_0_high_temp+'<br>Low:'+date_0_low_temp+'<br>Sunrise:'+date_0_sunrise_time+'<br>Sunset:'+date_0_sunset_time+'</p></div></div></div>';
+            document.getElementById("5_day_forecast").innerHTML += temp_card;
+
+            var date_1 = getKey(1);
+            console.log(date_1);
+            var date_1_high_temp = date_1.maxtemp;
+            var date_1_low_temp = date_1.mintemp;
+            var date_1_sunrise_time = date_1.astro.sunrise;
+            var date_1_sunset_time = date_1.astro.sunset;
+            var temp_card = '<div style="width: 20%;"><div class="card"><div class="card-body"><h5 class="card-title">'+dayOfWeek+'</h5><p class="card-text">High:'+date_1_high_temp+'<br>Low:'+date_1_low_temp+'<br>Sunrise:'+date_1_sunrise_time+'<br>Sunset:'+date_1_sunset_time+'</p></div></div></div>';
+            document.getElementById("5_day_forecast").innerHTML += temp_card;
+
+            var date_2 = getKey(2);
+            console.log(date_2);
+            var date_2_high_temp = date_2.maxtemp;
+            var date_2_low_temp = date_2.mintemp;
+            var date_2_sunrise_time = date_2.astro.sunrise;
+            var date_2_sunset_time = date_2.astro.sunset;
+            var temp_card = '<div style="width: 20%;"><div class="card"><div class="card-body"><h5 class="card-title">'+dayOfWeek+'</h5><p class="card-text">High:'+date_2_high_temp+'<br>Low:'+date_2_low_temp+'<br>Sunrise:'+date_2_sunrise_time+'<br>Sunset:'+date_2_sunset_time+'</p></div></div></div>';
+            document.getElementById("5_day_forecast").innerHTML += temp_card;
+
+            var date_3 = getKey(3);
+            console.log(date_3);
+            var date_3_high_temp = date_3.maxtemp;
+            var date_3_low_temp = date_3.mintemp;
+            var date_3_sunrise_time = date_3.astro.sunrise;
+            var date_3_sunset_time = date_3.astro.sunset;
+            var temp_card = '<div style="width: 20%;"><div class="card"><div class="card-body"><h5 class="card-title">'+dayOfWeek+'</h5><p class="card-text">High:'+date_3_high_temp+'<br>Low:'+date_3_low_temp+'<br>Sunrise:'+date_3_sunrise_time+'<br>Sunset:'+date_3_sunset_time+'</p></div></div></div>';
+            document.getElementById("5_day_forecast").innerHTML += temp_card;
+
+            var date_4 = getKey(4);
+            console.log(date_4);
+            var date_4_high_temp = date_4.maxtemp;
+            var date_4_low_temp = date_4.mintemp;
+            var date_4_sunrise_time = date_4.astro.sunrise;
+            var date_4_sunset_time = date_4.astro.sunset;
+            var temp_card = '<div style="width: 20%;"><div class="card"><div class="card-body"><h5 class="card-title">'+dayOfWeek+'</h5><p class="card-text">High:'+date_4_high_temp+'<br>Low:'+date_4_low_temp+'<br>Sunrise:'+date_4_sunrise_time+'<br>Sunset:'+date_4_sunset_time+'</p></div></div></div>';
+            document.getElementById("5_day_forecast").innerHTML += temp_card;
 			})
 		})
  	</script>
